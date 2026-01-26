@@ -1,0 +1,200 @@
+/* Report Dialog Styles - Matching Mobile App Design */
+
+.report-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(51, 53, 58, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.report-dialog-content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+}
+
+.report-dialog-shape {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.report-dialog-container h3.report-dialog-title {
+    position: absolute;
+    left: -20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 113.99999999999999%;
+    letter-spacing: -.4px;
+    color: #fff;
+    top: -8rem;
+}
+.report-options-container button.report-option-item {
+    padding: 0px;
+    border: 0px;
+    background: transparent;
+}
+.report-dialog-container {
+    max-width: 190px;
+    margin: 0px auto;
+}
+
+.report-dialog-container {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.report-dialog-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+.report-options-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.report-option-item {
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #000;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.report-option-item:hover {
+  border-color: #FF8541;
+  background-color: rgba(255, 133, 65, 0.05);
+}
+
+.report-option-item.selected {
+  border-color: #FF8541;
+  background-color: rgba(255, 133, 65, 0.1);
+}
+
+.report-option-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #000;
+}
+
+.report-option-text.highlighted {
+  font-weight: 700;
+  color: #555555;
+}
+
+.report-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    max-width: 174px;
+    margin-right: auto;
+}
+
+.report-cancel-button {
+  flex: 1;
+  padding: 12px 20px;
+  background: none;
+  border: 1px solid #E0E0E0;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.report-cancel-button:hover {
+  background-color: #F5F5F5;
+}
+
+.report-submit-button {
+    flex: 1;
+    padding: 0px 0px;
+    background-color: #FF8541;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 67px;
+}
+
+.report-submit-button:hover:not(:disabled) {
+  background-color: rgba(255, 133, 65, 0.9);
+}
+
+.report-submit-button:disabled {
+  background-color: #CCC;
+  cursor: not-allowed;
+}
+.report-dialog-shape img {
+    width: 100%;
+    height: 100%;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report-dialog-content {
+    width: 95%;
+  }
+
+  .report-dialog-container {
+    padding: 0px;
+  }
+
+  .report-dialog-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .report-button-container {
+    /* flex-direction: column; */
+    gap: 10px;
+  }
+  .report-button-container button.report-cancel-button {
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+    max-width: fit-content;
+}
+}
+

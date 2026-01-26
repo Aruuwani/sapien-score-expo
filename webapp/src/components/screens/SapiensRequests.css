@@ -1,0 +1,493 @@
+/* Container */
+.requests-container {
+  min-height: 100vh;
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+}
+
+.requests-content {
+  flex: 1;
+  padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 18px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin-right: 12px;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.header-text {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.header-count {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 8px;
+}
+
+/* Loading and Empty States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #FF8541;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  height: 75vh;
+}
+
+.empty-text {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+/* Requests List */
+.requests-list {
+  padding: 0 0px 20px 0px;
+}
+
+/* Request Card */
+.request-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  margin-bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.request-card-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.request-card-info {
+  flex: 1;
+}
+
+.name-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.request-card-name {
+  font-family: 'Poppins-Light', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  margin: 0;
+  margin-right: 2px;
+}
+
+/* .new-badge {
+  background-color: #FF4848;
+  color: #FFFFFF;
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+} */
+
+.request-card-relation {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 15px;
+  color: #191D23;
+  margin: 0;
+}
+
+.request-card-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.date-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #7A7A7A;
+  margin: 0 0 2px 0;
+  font-weight: 275;
+}
+
+.date-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #000;
+  margin: 0 0 8px 0;
+  font-weight: 300;
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.accept-header-button {
+  background-color: #C4E400;
+  border: none;
+  border-radius: 15px;
+  padding: 6px 12px;
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.accept-header-button:hover {
+  opacity: 0.9;
+}
+
+.accept-header-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.open-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #000;
+  gap: 15px;
+}
+
+.open-button:hover {
+  opacity: 0.7;
+}
+
+/* Card Details */
+.request-card-details {
+  padding: 0 20px 20px 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 3000px;
+  }
+}
+
+/* Partial Score Preview - Two Column Layout */
+.dimension-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.left-dimension {
+  flex: 1;
+  margin-right: 6px;
+  background-color: #ffffff;
+  padding: 0px;
+  border-radius: 4px;
+}
+
+.right-dimension {
+  flex: 1;
+  margin-left: 6px;
+  background-color: #ffffff;
+  padding: 0px;
+  border-radius: 4px;
+  /* display: flex; */
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 0px !important;
+}
+
+.dimension-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.dimension-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: -.4px;
+}
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.item-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  /* color: #FF8541; */
+  flex: 1;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+.item-score {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 12px;
+  color: #111 !important;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.accept-message {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.right-dimension .dimension-header.request-card-header {
+  justify-content: end;
+  text-align: left;
+  padding: 0px;
+}
+
+.request-content .item-row * {
+  color: #FF8541 !important;
+}
+
+.blocked-card-details .dimension-header {
+  justify-content: space-between;
+}
+
+/* Show All Toggle */
+.show-all-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.show-all-button {
+  background-color: transparent;
+  border: none;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.show-all-button:hover {
+  opacity: 0.8;
+}
+
+/* Comment Section */
+.comment-section {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #F9F9F9;
+  border-radius: 8px;
+}
+
+.comment-label {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 4px 0;
+}
+
+.comment-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #000;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.request-card-details .comment-section p.comment-label {
+  font-weight: 500;
+  font-size: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.request-card-details .comment-section {
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+
+/* Card Footer */
+.card-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #F0F0F0;
+}
+
+.request-card-details .action-buttons-row button {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.request-card-details .action-buttons-row button.block-button {
+  background: transparent;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0px;
+}
+
+.action-buttons-row {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 0px;
+  align-items: center;
+}
+
+.block-button,
+.reject-button,
+.accept-button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Poppins-Medium', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.block-button {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.reject-button {
+  background-color: #FF4E4E;
+  color: #FFFFFF;
+}
+
+.accept-button {
+  background-color: #BFFF98;
+  color: #000000;
+}
+
+.block-button:hover,
+.reject-button:hover,
+.accept-button:hover {
+  opacity: 0.8;
+}
+
+.block-button:disabled,
+.reject-button:disabled,
+.accept-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.close-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF8541;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Poppins-Medium', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.close-button:hover {
+  opacity: 0.9;
+}

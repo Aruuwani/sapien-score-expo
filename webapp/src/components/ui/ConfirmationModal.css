@@ -1,0 +1,159 @@
+/* Confirmation Modal Styles - Matching Mobile App Design */
+
+.confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(51, 53, 58, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.confirmation-modal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-modal-container {
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 500px;
+  aspect-ratio: 1.7;
+  transform: rotate(-20deg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(20deg);
+    max-width: 280px;
+}
+
+.confirmation-modal-message {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+  margin: 0 0 8px 0;
+}
+
+.confirmation-modal-submessage {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+  margin: 0 0 20px 0;
+}
+
+.confirmation-modal-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.confirmation-modal-cancel {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.confirmation-modal-cancel:hover {
+  opacity: 0.7;
+}
+
+.confirmation-modal-confirm {
+  padding: 10px 11px;
+  border-radius: 10px;
+  background-color: rgba(255, 133, 65, 1);
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirmation-modal-confirm:hover {
+  background-color: rgba(255, 133, 65, 0.9);
+}
+
+.confirmation-modal-bubble-large {
+    position: absolute;
+    bottom: 33%;
+    left: 8%;
+    width: 33px;
+    height: 39px;
+    background-color: white;
+    border-radius: 50%;
+    transform: rotate(
+85deg);
+}
+
+.confirmation-modal-bubble-small {
+    position: absolute;
+    bottom: 31%;
+    left: 3%;
+    width: 20px;
+    height: 18px;
+    background-color: white;
+    opacity: 1;
+    border-radius: 50%;
+    transform: rotate(104.11deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .confirmation-modal-container {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .confirmation-modal-message {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .confirmation-modal-buttons {
+    width: 90%;
+    gap: 15px;
+  }
+}
+
+
+

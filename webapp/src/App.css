@@ -1,0 +1,145 @@
+/* Offline Screen Styles */
+.offline-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F3F3F3;
+}
+
+.offline-content {
+  text-align: center;
+  padding: 40px;
+}
+
+.offline-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.offline-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.offline-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.retry-button {
+  background-color: #FF8541;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.retry-button:hover {
+  background-color: #e67535;
+}
+
+
+
+/* fonts */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins-ExtraLight.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins-Light.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins-Medium.woff2') format('woff2'),
+    url('/src/assets/fonts/Poppins-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Global focus outline removal */
+button,
+button:focus,
+button:focus-visible,
+button:active,
+a,
+a:focus,
+a:focus-visible,
+a:active,
+svg,
+svg:focus,
+svg:focus-visible,
+svg:active,
+span,
+span:focus,
+span:focus-visible,
+span:active,
+div,
+div:focus,
+div:focus-visible,
+div:active,
+input,
+input:focus,
+input:focus-visible,
+input:active,
+textarea,
+textarea:focus,
+textarea:focus-visible,
+textarea:active,
+i,
+i:focus,
+i:focus-visible,
+i:active,
+path,
+path:focus,
+path:focus-visible,
+path:active {
+  outline: none !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Universal selector fallback */
+*:focus,
+*:focus-visible,
+*:active {
+  outline: none !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+}

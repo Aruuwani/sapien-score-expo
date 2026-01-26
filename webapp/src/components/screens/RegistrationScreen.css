@@ -1,0 +1,128 @@
+.registration-container {
+  min-height: 100vh;
+  background-color: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.username-input-wrapper {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+
+.username-input-wrapper .text-input {
+  flex: 1;
+}
+
+.choose-username-button {
+  background-color: #FF8541;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.choose-username-button:hover {
+  background-color: #e67535;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.usernames-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.username-option11 {
+  background-color: #F3F3F3;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.username-option11:hover {
+  background-color: #FF8541;
+  color: white;
+  border-color: #FF8541;
+}
+
+.modal-close-button {
+  width: 100%;
+  background-color: #E0E0E0;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-close-button:hover {
+  background-color: #D0D0D0;
+}
+
+@media (max-width: 768px) {
+  .registration-content {
+    padding: 15px;
+  }
+
+  .usernames-grid {
+    grid-template-columns: 1fr;
+  }
+}

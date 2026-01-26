@@ -1,0 +1,868 @@
+/* Container */
+.scores-received-container {
+  min-height: 100vh;
+  background-color: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.scores-received-container .slider-container {
+  margin-left: 0px;
+}
+
+.score-card span.score-card-name {
+  font-size: 16px;
+}
+
+.scores-received-content {
+  flex: 1;
+  padding-bottom: 100px;
+  width: 100%;
+  max-width: 100%;
+}
+
+svg.lucide.lucide-arrow-left {
+  min-width: 20px;
+  position: relative;
+  top: -3px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 25px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  align-items: center;
+
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin-right: 20px;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+
+.header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #000;
+  text-align: left;
+  margin: 0;
+}
+
+.header-count {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 30px;
+  margin-top: -5px;
+}
+
+/* Loading and Empty States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #FF8541;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  height: 75vh;
+}
+
+.empty-text {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+/* Scores List */
+.scores-list {
+  padding: 0px;
+  padding-bottom: 80px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Score Card */
+.score-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.score-card-header {
+  padding: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.score-card-info {
+  flex: 1;
+}
+
+.name-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.score-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: -0.4px;
+  text-align: left;
+  vertical-align: center;
+  color: #000000;
+  margin: 0;
+}
+
+.new-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FF4848;
+  position: relative;
+  bottom: -3px;
+}
+
+.score-card-relation {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 0px;
+}
+
+.score-value {
+  color: #0050EB;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.score-card-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.date-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #7A7A7A;
+  margin: 0 0 2px 0;
+  font-weight: 275;
+}
+
+.date-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #000;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.open-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  padding: 0;
+  margin-right: 20px;
+  gap: 15px;
+}
+
+.open-button:hover {
+  opacity: 0.9;
+}
+
+/* Card Details */
+.score-card-details {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 3000px;
+  }
+}
+
+/* Two-column dimension layout */
+.dimension-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.left-dimension {
+  flex: 1;
+  margin-right: 6px;
+}
+
+.right-dimension {
+  flex: 1;
+  margin-left: 6px;
+}
+
+.dimension-container {
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Dynamic heights based on trait count */
+.trait-count-1 {
+  min-height: 90px;
+}
+
+.trait-count-2 {
+  min-height: 80px;
+}
+
+.trait-count-3 {
+  min-height: 140px;
+  max-height: 80px;
+}
+
+/* .trait-count-4 {
+  min-height: 140px;
+  max-height: 140px;
+} */
+
+.dimension-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+}
+
+.dimension-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  max-width: 75%;
+  line-height: 16px;
+}
+
+.dimension-score {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.item-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  /* color: #FF8541; */
+  flex: 1;
+  flex-shrink: 1;
+  text-align: left;
+  padding-right: 8px;
+  line-height: 13px;
+
+}
+
+.item-score {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #111 !important;
+  min-width: 24px;
+  text-align: right;
+  font-weight: 400;
+}
+
+/* Comment Section */
+.comment-section {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #F9F9F9;
+  border-radius: 8px;
+}
+
+.comment-label {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 4px 0;
+}
+
+.comment-text {
+  font-family: 'Poppins-Regular', sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Slider Container for horizontal scrolling */
+.slider-container {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow-x: auto !important;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  width: 100%;
+}
+
+.scoring-flow-container .slider-container {
+  overflow: visible !important;
+  margin: 0px auto;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.comment-category {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+  margin-top: 0;
+  color: #000 !important;
+}
+
+/* Ensure comment-section matches the card look when used in slider */
+.comment-section {
+  background-color: #F9F9F9;
+  border-radius: 8px;
+  padding: 12px;
+  /* Inline styles in TSX will handle width/flex */
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+  padding-inline: 5px;
+}
+
+.action-buttons-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 35px;
+}
+
+.block-button {
+  display: flex;
+  background-color: #E6E6E6;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  height: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+
+.report-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #000;
+  padding: 0;
+}
+
+.block-button:hover,
+.report-button:hover {
+  opacity: 0.8;
+}
+
+.block-button:disabled,
+.report-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.close-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  padding: 0;
+  margin-right: 4px;
+}
+
+.close-button:hover {
+  opacity: 0.9;
+}
+
+
+
+/* ========================================
+   RESPONSIVE MEDIA QUERIES
+   ======================================== */
+
+/* Extra Small Mobile devices (max-width: 375px) */
+@media only screen and (max-width: 375px) {
+  .scores-received-content {
+    padding-bottom: 80px;
+  }
+
+  .header {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
+
+  .header-content {
+    gap: 15px;
+  }
+
+  .header-text {
+    font-size: 20px;
+  }
+
+  .header-count {
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: -3px;
+  }
+
+  .scores-list {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .score-card {
+    margin-top: 20px;
+    border-radius: 16px;
+  }
+
+  .score-card-header {
+    padding: 12px 16px;
+  }
+
+  .score-card-name {
+    /* font-size: 17px; */
+    line-height: 26px;
+  }
+
+  .new-badge {
+    font-size: 11px;
+    bottom: -2px;
+  }
+
+
+  .score-value {
+    font-size: 13px;
+  }
+
+  .date-label {
+    font-size: 9px;
+  }
+
+  .date-text {
+    font-size: 11px;
+  }
+
+  .dimension-row {
+    flex-direction: column;
+    margin-bottom: 8px;
+  }
+
+  .left-dimension,
+  .right-dimension {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .dimension-title {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .dimension-score {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .item-name,
+  .item-score {
+    font-size: 11px;
+  }
+
+  .action-buttons-row {
+    gap: 15px;
+  }
+
+  .block-button {
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .report-button {
+    font-size: 13px;
+  }
+
+  .close-button {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile devices (376px - 480px) */
+@media only screen and (min-width: 376px) and (max-width: 480px) {
+  .scores-received-content {
+    padding-bottom: 85px;
+  }
+
+  .header {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 22px;
+  }
+
+  .header-content {
+    gap: 20px;
+  }
+
+  .header-text {
+    font-size: 22px;
+  }
+
+  .header-count {
+    font-size: 26px;
+    line-height: 26px;
+    margin-top: -4px;
+  }
+
+
+  .score-card {
+    margin-top: 24px;
+    border-radius: 18px;
+  }
+
+  .score-card-header {
+    padding: 14px 18px;
+  }
+
+  .score-card-name {
+    /* font-size: 18px; */
+    line-height: 28px;
+  }
+
+  .dimension-row {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .left-dimension,
+  .right-dimension {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+  .action-buttons-row {
+    gap: 20px;
+  }
+}
+
+/* Small tablets (481px - 767px) */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .scores-received-content {
+    padding-bottom: 95px;
+  }
+
+  .header {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+  }
+
+  .header-content {
+    gap: 22px;
+  }
+
+  .header-text {
+    font-size: 24px;
+  }
+
+  .header-count {
+    font-size: 28px;
+    line-height: 28px;
+    margin-top: -4px;
+  }
+
+
+  .score-card {
+    margin-top: 26px;
+    border-radius: 19px;
+  }
+
+  .score-card-header {
+    padding: 15px 19px;
+  }
+
+  .score-card-name {
+    /* font-size: 19px; */
+    line-height: 29px;
+  }
+
+  /* Two-column layout for tablets */
+  .dimension-row {
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .left-dimension {
+    flex: 1;
+    margin-right: 4px;
+    margin-left: 0;
+  }
+
+  .right-dimension {
+    flex: 1;
+    margin-left: 4px;
+    margin-right: 0;
+  }
+
+
+  .action-buttons-row {
+    gap: 28px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .scores-received-container {
+    max-width: 100%;
+  }
+
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 25px;
+  }
+
+  .header-content {
+    gap: 25px;
+  }
+
+  .header-text {
+    font-size: 25px;
+  }
+
+  .header-count {
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: -5px;
+  }
+
+
+  .score-card {
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: 20px;
+  }
+
+  .score-card-header {
+    padding: 16px 20px;
+  }
+
+  .score-card-name {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  /* Full two-column layout */
+  .dimension-row {
+    flex-direction: row;
+    margin-bottom: 12px;
+  }
+
+  .left-dimension {
+    flex: 1;
+    margin-right: 6px;
+    margin-left: 0;
+  }
+
+  .right-dimension {
+    flex: 1;
+    margin-left: 6px;
+    margin-right: 0;
+  }
+
+
+  .action-buttons-row {
+    gap: 35px;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .scores-received-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+  .score-card {
+    max-width: 100%;
+  }
+}
+
+/* Large Desktop (1441px+) */
+@media only screen and (min-width: 1441px) {
+  .scores-received-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+
+  .score-card {
+    max-width: 100%;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+  .scores-received-content {
+    padding-bottom: 60px;
+  }
+
+  .header {
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+
+  .score-card {
+    margin-top: 20px;
+  }
+}

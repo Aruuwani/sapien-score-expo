@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVG to PNG Converter</title>
+</head>
+
+<body>
+    <h2>Convert SVG Logo to PNG</h2>
+    <canvas id="canvas" width="600" height="126"></canvas>
+    <br><br>
+    <a id="download" download="loginapplogo.png">
+        <button>Download PNG</button>
+    </a>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0, 600, 126);
+            const pngUrl = canvas.toDataURL('image/png');
+            document.getElementById('download').href = pngUrl;
+            console.log('PNG generated successfully!');
+        };
+
+        img.src = '/Users/abrahimwani/Desktop/Development/SapienScore/sapien-repo/sapien-score-expo/sapien_backend/controllers/loginapplogo.svg';
+    </script>
+</body>
+
+</html>
