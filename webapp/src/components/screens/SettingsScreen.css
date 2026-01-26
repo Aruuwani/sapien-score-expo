@@ -1,0 +1,287 @@
+.settings-container {
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-content {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.settings-header .back-button {
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-header .header-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  margin-left: 12px;
+  color: #000;
+}
+
+.settings-main-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setting-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #000;
+}
+
+/* Custom Switch (same as ProfileScreen) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #D9D9D9;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: -2px;
+  bottom: -2.5px;
+  background-color: #000;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked+.slider:before {
+  background-color: #FF8541;
+  transform: translateX(22px);
+}
+
+/* Logout Button */
+.left-tools {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 15px;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logout-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Footer */
+.settings-footer {
+  padding: 0 16px;
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.delete-button-settings {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 3px 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.delete-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+.privacy-button {
+  padding: 6px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 8px;
+  gap: 6px;
+}
+
+.terms-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #000;
+  margin-left: 16px;
+}
+
+.copyright-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  margin: 0;
+}
+
+.gray-space {
+  height: 150px;
+  background-color: #f5f5f5;
+  margin: 0 -16px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  height: 216px;
+  border: 1px solid #F2F2F2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #555555;
+  margin-top: 40px;
+}
+
+.modal-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+}
+
+.modal-button-cancel {
+  padding: 10px;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
+  line-height: 20px;
+}
+
+.modal-button-confirm {
+  background-color: #FF8541;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 22px;
+}
+
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .settings-content {
+    padding: 0;
+  }
+
+  .modal-container {
+    width: 90%;
+    max-width: 320px;
+    margin: 0px auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

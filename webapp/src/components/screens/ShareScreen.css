@@ -1,0 +1,218 @@
+/* ShareScreen.css - Figma Design Match */
+
+.share-screen-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #FAF5EF;
+  padding: 60px 32px 40px;
+  box-sizing: border-box;
+}
+
+.share-screen-content {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* Main Card - SapienScore shared with */
+.share-screen-main-card {
+  background-color: #F5E5C8;
+  border-radius: 20px;
+  padding: 50px 28px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px 0px #00000040 !important;
+}
+
+.share-screen-title {
+  font-size: 20px;
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.2px;
+}
+
+.share-screen-person-name {
+  font-size: 32px;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.3px;
+  word-break: break-word;
+}
+
+/* Info Card */
+.share-screen-info-card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px 0px #00000040 !important;
+}
+
+.share-screen-help-text {
+  font-size: 17px;
+  color: #222222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.share-screen-info-text {
+  font-size: 13px;
+  color: #555555;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Action Buttons */
+.share-screen-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 80px;
+  width: 100%;
+}
+
+.share-screen-primary-button {
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    min-width: 240px;
+    padding: 14px 32px;
+    background-color: #FF8541;
+    border: 2px solid #FF8541;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #111;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    border-radius: 10px;
+}
+
+.share-screen-primary-button:hover {
+  background-color: rgba(255, 133, 65, 0.08);
+}
+
+.share-screen-primary-button:focus {
+  outline: none;
+}
+
+.share-screen-primary-button svg {
+  color: #FF8541;
+  flex-shrink: 0;
+}
+.share-screen-buttons svg path {
+    stroke: #111;
+}
+.share-screen-secondary-button {
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    min-width: 180px;
+    padding: 12px 28px;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 50px;
+    font-size: 17px;
+    color: #555555;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.share-screen-secondary-button:hover {
+  border-color: #888888;
+  color: #333333;
+}
+
+.share-screen-secondary-button:focus {
+  outline: none;
+}
+
+.share-screen-secondary-button svg {
+  color: #555555;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .share-screen-container {
+    padding: 40px 24px 32px;
+  }
+
+  .share-screen-main-card {
+    padding: 40px 24px;
+    border-radius: 18px;
+  }
+
+  .share-screen-title {
+    font-size: 22px;
+  }
+
+  .share-screen-person-name {
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  .share-screen-info-card {
+    margin-top: 120px;
+    padding: 24px 30px;
+    border-radius: 14px;
+    width: fit-content;
+  }
+
+  .share-screen-help-text {
+    font-size: 16px;
+  }
+
+  .share-screen-info-text {
+    font-size: 12px;
+  }
+
+  .share-screen-buttons {
+    padding-top: 60px;
+    gap: 14px;
+  }
+
+  .share-screen-primary-button {
+     font-size: 25px;
+    padding: 7px 20px;
+    min-width: 220px;
+  }
+
+  .share-screen-secondary-button {
+    font-size: 25px;
+    padding: 10px 20px;
+    min-width: 160px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}

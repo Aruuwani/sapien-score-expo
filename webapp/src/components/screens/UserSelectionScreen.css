@@ -1,0 +1,319 @@
+/* Container */
+.user-selection-container {
+  min-height: 100vh;
+  background-color: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 10px 10px;
+  position: relative;
+}
+
+.header-container h1.header-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  line-height: 113.99999999999999%;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 370px;
+  margin: 0px auto;
+}
+
+/* Back Button */
+.back-button {
+  margin-top: 20px;
+  margin-left: -5px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Header */
+.header-container {
+  margin-top: 10px !important;
+  margin-bottom: 52px !important;
+}
+
+.header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 35px;
+  text-align: center;
+  line-height: 36px;
+  color: #000000;
+  letter-spacing: -0.4px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  margin: 0;
+}
+
+.sub-header-text {
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+  margin: 0;
+  margin-top: 15px;
+  font-weight: 275;
+  font-size: 15px;
+  line-height: 113.99999999999999%;
+  letter-spacing: -.2px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Input Container */
+.input-containermain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-input {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  padding: 10px 16px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: -0.4px;
+  width: 100%;
+  max-width: 320px;
+  align-self: center;
+  border: none;
+  font-weight: 300;
+}
+
+.email-input::placeholder {
+  color: #555555;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 20px;
+  line-height: 113.99999999999999%;
+  letter-spacing: -2%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.email-input:focus {
+  outline: none;
+}
+
+.invalid-input {
+  border: 1px solid red;
+}
+
+.or-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 16px;
+  margin-top: 12px;
+  font-weight: 300;
+}
+
+/* Phone Input Container with Contact Picker Icon */
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-input {
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+  padding: 10px 50px 10px 16px;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -0.4px;
+  width: 100%;
+  border: none;
+  font-weight: 300;
+}
+
+.phone-input::placeholder {
+  color: #555555;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+}
+
+.phone-input:focus {
+  outline: none;
+}
+
+.contact-picker-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FF8541;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease;
+}
+
+.contact-picker-icon:hover {
+  background-color: #e5753a;
+}
+
+.contact-picker-icon:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Selected Contact Label */
+.selected-contact-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #FF8541;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* Contact Fallback Text */
+.contact-fallback-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #888888;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: -0.4px;
+  align-self: center;
+  font-weight: 300;
+  color: #555555;
+}
+
+/* Skip Button */
+.skip-button {
+  align-self: flex-end;
+  margin-bottom: 16px;
+  padding: 8px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.skip-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #000000;
+  font-weight: 300;
+}
+
+/* Custom Message */
+.message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  backdrop-filter: blur(2px);
+}
+
+.isalreadyselected .message-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  z-index: 2001;
+  pointer-events: none;
+}
+
+.custom-message {
+  font-size: 16px;
+  color: #333333;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  background-color: #FFFFFF;
+  padding: 24px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  pointer-events: auto;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #FF8541;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Email Error Text */
+.email-error-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #FF4444;
+  text-align: center;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
