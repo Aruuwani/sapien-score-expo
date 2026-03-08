@@ -1,5 +1,6 @@
 const ratingService = require('../services/rating.services');
 const relationService = require('../services/relationService');
+const { sendScoringNotification } = require('../services/whatsappService');
 // const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const { Types } = mongoose;
@@ -481,7 +482,15 @@ Team SapienScore
         html: emailHtml,
       });
     }
-    // Note: No SMS sent for phone numbers (Twilio disabled)
+    // Send WhatsApp notification if receiver has a phone number
+    const receiverPhone = receiver.phone_number || (!emailOrPhone.includes('@') ? emailOrPhone : null);
+    if (receiverPhone) {
+      try {
+        await sendScoringNotification(receiverPhone, sender?.username || 'Someone', relationName || 'colleague');
+      } catch (whatsappError) {
+        console.error('WhatsApp notification failed (non-blocking):', whatsappError.message);
+      }
+    }
 
     res.status(201).json({
       message: 'Rating created successfully',
@@ -641,7 +650,15 @@ const updateRating = async (req, res) => {
         text: messageText,
       });
     }
-    // Note: No SMS sent (Twilio disabled)
+    // Send WhatsApp notification for score update
+    const receiverPhone = receiver.phone_number;
+    if (receiverPhone) {
+      try {
+        await sendScoringNotification(receiverPhone, 'Someone', 'score update');
+      } catch (whatsappError) {
+        console.error('WhatsApp update notification failed (non-blocking):', whatsappError.message);
+      }
+    }
 
     res.status(200).json({
       message: 'Rating updated successfully.',
