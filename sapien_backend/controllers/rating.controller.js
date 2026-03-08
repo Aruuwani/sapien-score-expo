@@ -394,29 +394,28 @@ const createRating = async (req, res) => {
       },
     });
 
-    // Send email notification ONLY if email is provided
-    // Twilio SMS is disabled - no notifications for phone-only ratings
-    if (emailOrPhone.includes('@')) {
-      // Get relation name
-      let relationName = 'colleague/friend/casual';
-      try {
-        if (sender_relation) {
-          const relation = await relationService.getRelationById(sender_relation);
-          if (relation && relation.name) {
-            relationName = relation.name.toLowerCase();
-          }
+    // Get relation name (used by both email and WhatsApp)
+    let relationName = 'colleague/friend/casual';
+    try {
+      if (sender_relation) {
+        const relation = await relationService.getRelationById(sender_relation);
+        if (relation && relation.name) {
+          relationName = relation.name.toLowerCase();
         }
-      } catch (err) {
-        console.error('Error fetching relation name for email:', err);
       }
+    } catch (err) {
+      console.error('Error fetching relation name:', err);
+    }
 
-      const senderUsername = sender?.username || 'Someone';
+    const senderUsername = sender?.username || 'Someone';
 
-      // Logo URL hosted on S3
-      const logoUrl = 'https://sapienbuket.s3.us-east-1.amazonaws.com/SapienScore.png';
+    // Send email notification ONLY if email is provided
+    if (emailOrPhone.includes('@')) {
+      try {
+        // Logo URL hosted on S3
+        const logoUrl = 'https://sapienbuket.s3.us-east-1.amazonaws.com/SapienScore.png';
 
-
-      const emailHtml = `
+        const emailHtml = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -453,9 +452,9 @@ const createRating = async (req, res) => {
   </div>
 </body>
 </html>
-      `;
+        `;
 
-      const emailText = `
+        const emailText = `
 Hello There,
 
 Welcome to Sapienscore, a place to share and receive anonymous feedback.
@@ -472,21 +471,25 @@ Good luck and happy scoring 😃
 
 Regards,
 Team SapienScore
-      `;
+        `;
 
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: emailOrPhone,
-        subject: 'New Sapien Score Request',
-        text: emailText,
-        html: emailHtml,
-      });
+        await transporter.sendMail({
+          from: process.env.EMAIL_USER,
+          to: emailOrPhone,
+          subject: 'New Sapien Score Request',
+          text: emailText,
+          html: emailHtml,
+        });
+      } catch (emailError) {
+        console.error('Email notification failed (non-blocking):', emailError.message);
+      }
     }
+
     // Send WhatsApp notification if receiver has a phone number
     const receiverPhone = receiver.phone_number || (!emailOrPhone.includes('@') ? emailOrPhone : null);
     if (receiverPhone) {
       try {
-        await sendScoringNotification(receiverPhone, sender?.username || 'Someone', relationName || 'colleague');
+        await sendScoringNotification(receiverPhone, senderUsername, relationName);
       } catch (whatsappError) {
         console.error('WhatsApp notification failed (non-blocking):', whatsappError.message);
       }
