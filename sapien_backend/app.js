@@ -66,7 +66,8 @@ app.use(mongoSanitize({
 }));
 
 // 6. HTTP Parameter Pollution protection
-app.use(hpp());
+// hpp() disabled - incompatible with newer Node.js (req.query is read-only)
+// app.use(hpp());
 
 // Connect Database
 connectDB();
