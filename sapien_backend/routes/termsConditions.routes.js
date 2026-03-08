@@ -1,23 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const termsController = require('../controllers/termsConditions.controller');
+const { authMiddleware } = require('../middlewares/authMiddleware');
 
 /**
- * Public Routes
+ * Public Routes (no auth needed - users must be able to read T&C)
  */
-
-// Get active Terms & Conditions or Privacy Policy
 router.get('/:type', termsController.getTermsConditions);
 
 /**
- * Admin Routes (Add authentication middleware when ready)
+ * Admin/Protected Routes (require authentication)
  */
-
-// Create or update Terms & Conditions
-router.post('/', termsController.createOrUpdateTerms);
-
-// Get all versions
-router.get('/all/:type', termsController.getAllVersions);
+router.post('/', authMiddleware, termsController.createOrUpdateTerms);
+router.get('/all/:type', authMiddleware, termsController.getAllVersions);
 
 module.exports = router;
-
