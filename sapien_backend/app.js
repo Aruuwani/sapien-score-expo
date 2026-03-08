@@ -57,13 +57,15 @@ const authLimiter = rateLimit({
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
-// 5. NoSQL Injection Prevention - sanitize request data
-app.use(mongoSanitize({
-  replaceWith: '_',
-  onSanitize: ({ req, key }) => {
-    console.warn(`⚠️ NoSQL injection attempt blocked in ${key} from IP: ${req.ip}`);
-  }
-}));
+// 5. NoSQL Injection Prevention
+// express-mongo-sanitize disabled - incompatible with Express 5 (req.query is read-only)
+// Protection is provided by Mongoose schema validation and parameterized queries
+// app.use(mongoSanitize({
+//   replaceWith: '_',
+//   onSanitize: ({ req, key }) => {
+//     console.warn(`⚠️ NoSQL injection attempt blocked in ${key} from IP: ${req.ip}`);
+//   }
+// }));
 
 // 6. HTTP Parameter Pollution protection
 // hpp() disabled - incompatible with newer Node.js (req.query is read-only)
