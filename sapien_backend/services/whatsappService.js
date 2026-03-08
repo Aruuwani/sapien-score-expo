@@ -119,24 +119,14 @@ const sendScoringNotification = async (phoneNumber, senderName, relationName) =>
         return { success: false, error: 'WhatsApp not configured' };
     }
 
-    const message = `Hello There,
-
-Welcome to SapienScore, a place to share and receive anonymous feedback.
-
-You have been scored by "${senderName}" as "${relationName}"
-
-You can view the scores by creating an account here.
-
-Register at: www.Sapio.one with your corporate and personal email.
-
-Once registered, you can access and view how you are perceived by your friends.
-
-Good luck and happy scoring 😃
-
-Regards,
-Team SapienScore`;
-
-    return sendWhatsAppText(phoneNumber, message);
+    // Use approved scoring_notification template with dynamic parameters
+    // {{1}} = sender name, {{2}} = relation name
+    return sendWhatsAppTemplate(
+        phoneNumber,
+        'scoring_notification',
+        'en',
+        [senderName, relationName]
+    );
 };
 
 module.exports = {
