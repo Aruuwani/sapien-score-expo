@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Menu, Settings, MessageSquare, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { Eye, EyeOff, Menu, Settings, MessageSquare, ChevronRight, ChevronDown, ChevronUp, Instagram } from 'lucide-react';
 import { getUserProfile } from '@/api/userApi';
 import { getRatingsForMe, getSapienwhoIScored } from '@/api/ratingApi';
 import { markAllNotificationsAsRead, getNotifications } from '@/api/notificationApi';
@@ -330,6 +330,15 @@ const DashboardScreen: React.FC<DashboardScreenProps> = () => {
         <button className="start-scoring-button" onClick={handleStartScoring}>
           <span className="start-scoring-text">Start Scoring</span>
         </button>
+
+        <div className="flaunt-btn-wrapper">
+          <button className="flaunt-btn" onClick={() => navigate('/insta-post')}>
+            <span className="flaunt-btn-text">flaunt your top scores</span>
+            <div className="insta-icon-wrapper">
+              <Instagram size={18} color="#fff" strokeWidth={2} />
+            </div>
+          </button>
+        </div>
 
         {loading ? (
           <div className="loading-indicator">

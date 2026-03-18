@@ -28,6 +28,7 @@ import ChatScreen from '@/components/screens/ChatScreen';
 import ProfileScreen from '@/components/screens/ProfileScreen';
 import SettingsScreen from '@/components/screens/SettingsScreen';
 import NotificationScreen from '@/components/screens/NotificationScreen';
+import InstaPost from '@/components/screens/InstaPost';
 
 // ShareScreen Wrapper Component
 const ShareScreenWrapper: React.FC = () => {
@@ -90,6 +91,8 @@ export const AppRoutes: React.FC = () => {
   return (
     <Routes>
       {/* Public Routes */}
+      <Route path="/insta-post" element={<InstaPost />} />
+
       <Route path="/login" element={<NewLoginScreen />} />
       <Route path="/signup" element={<NewSignupScreen />} />
       <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
