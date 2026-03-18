@@ -25,17 +25,25 @@ const NewLoginScreen: React.FC<NewLoginScreenProps> = ({
   const [showPassword, setShowPassword] = useState(false);
   const [keepSignedIn, setKeepSignedIn] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
+  const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
   const [passwordError, setPasswordError] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isPendingUser, setIsPendingUser] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (phone) setPhoneError(false);
+    if (phone) {
+      setPhoneError(false);
+      setPhoneErrorMessage('');
+    }
   }, [phone]);
 
   useEffect(() => {
-    if (password) setPasswordError(false);
+    if (password) {
+      setPasswordError(false);
+      setPasswordErrorMessage('');
+    }
   }, [password]);
 
   const validatePhone = (phone: string): boolean => {
@@ -44,21 +52,24 @@ const NewLoginScreen: React.FC<NewLoginScreenProps> = ({
 
   const handleLogin = async () => {
     setErrorMessage('');
+    setPhoneError(false);
+    setPhoneErrorMessage('');
+    setPasswordError(false);
+    setPasswordErrorMessage('');
     setIsPendingUser(false);
     let hasError = false;
 
     if (!phone || !validatePhone(phone)) {
       setPhoneError(true);
+      setPhoneErrorMessage('Please enter a valid 10-digit phone number');
       hasError = true;
-    }
-
-    if (!password) {
+    } else if (!password) {
       setPasswordError(true);
+      setPasswordErrorMessage('Please enter your password');
       hasError = true;
     }
 
     if (hasError) {
-      setErrorMessage('Please enter correct password');
       return;
     }
 
@@ -103,11 +114,15 @@ const NewLoginScreen: React.FC<NewLoginScreenProps> = ({
       if (errorMsg.includes('Account not activated') || errorMsg.includes('Please sign up')) {
         setIsPendingUser(true);
         setErrorMessage('Your account is not activated yet. Someone has rated you! Please sign up to activate your account and view your ratings.');
+      } else if (errorMsg.toLowerCase().includes('account not found')) {
+        setPhoneError(true);
+        setPhoneErrorMessage('Phone number not found in our records.');
+      } else if (errorMsg.toLowerCase().includes('invalid password') || errorMsg.toLowerCase().includes('incorrect password')) {
+        setPasswordError(true);
+        setPasswordErrorMessage('Incorrect password.');
       } else {
         setErrorMessage(errorMsg);
       }
-
-      setPasswordError(true);
     } finally {
       setLoading(false);
     }
@@ -185,6 +200,11 @@ const NewLoginScreen: React.FC<NewLoginScreenProps> = ({
                   maxLength={10}
                 />
               </div>
+              {phoneError && phoneErrorMessage && (
+                <div style={{ color: '#EA2A2A', fontSize: '12px', marginTop: '4px' }}>
+                  {phoneErrorMessage}
+                </div>
+              )}
             </div>
 
             {/* Password Input */}
@@ -216,6 +236,11 @@ const NewLoginScreen: React.FC<NewLoginScreenProps> = ({
                   {showPassword ? <Eye size={20} color="#666" /> : <EyeOff size={20} color="#666" />}
                 </button>
               </div>
+              {passwordError && passwordErrorMessage && (
+                <div style={{ color: '#EA2A2A', fontSize: '12px', marginTop: '4px' }}>
+                  {passwordErrorMessage}
+                </div>
+              )}
 
               {/* Error Message */}
               {errorMessage && (

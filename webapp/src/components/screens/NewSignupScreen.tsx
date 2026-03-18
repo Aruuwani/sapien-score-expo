@@ -36,6 +36,7 @@ const NewSignupScreen: React.FC<NewSignupScreenProps> = ({
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [workEmailErrorMessage, setWorkEmailErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [generalError, setGeneralError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [termsModalType, setTermsModalType] = useState<'terms' | 'privacy'>('terms');
@@ -80,6 +81,7 @@ const NewSignupScreen: React.FC<NewSignupScreenProps> = ({
     setWorkEmailErrorMessage('');
     setPasswordError(false);
     setConfirmPasswordError(false);
+    setGeneralError('');
 
     if (!phone) {
       setPhoneError(true);
@@ -164,8 +166,7 @@ const NewSignupScreen: React.FC<NewSignupScreenProps> = ({
       } else if (errorMessage.toLowerCase().includes('password')) {
         setPasswordError(true);
       } else {
-        setPhoneError(true);
-        setPhoneErrorMessage(errorMessage);
+        setGeneralError(errorMessage);
       }
       toast.error(errorMessage);
     } finally {
