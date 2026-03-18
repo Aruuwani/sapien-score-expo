@@ -1,0 +1,200 @@
+/* ============================================
+   InstaPost.css – Styles for InstaPost screen
+   ============================================ */
+
+/* ── Full-screen image background ── */
+.instapost-background {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 32px;
+  box-sizing: border-box;
+  position: relative;
+
+  background-image: url('/assets/instabg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ── Close (✕) button – top-left ── */
+.instapost-close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  font-weight: 300;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s;
+}
+
+.instapost-close-btn:hover {
+  opacity: 0.7;
+}
+
+/* ── Snapshot card ── */
+.instapost-card {
+  width: 100%;
+  width: 307px;
+  height: 432px;
+  background-image: url('/Rectanglebg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  padding: 28px 24px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Logo circle ── */
+.instapost-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* ── Title ── */
+.instapost-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  width: 254px;
+  height: 23px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* ── Divider below title ── */
+.instapost-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto 16px auto;
+  border: none;
+  width: 90%;
+}
+
+/* ── Score list area ── */
+.instapost-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Individual score row ── */
+.instapost-score-row {
+  padding: 8px 0;
+}
+
+.instapost-score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.instapost-score-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.instapost-score-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── Progress bar image ── */
+.instapost-bar-img {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* ── Thin divider between score rows ── */
+.instapost-score-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+  margin: 0;
+  border: none;
+}
+
+/* ── Bottom tagline inside card ── */
+.instapost-tagline {
+  font-family: 'Sansation', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 26px 0 0;
+  padding-top: 14px;
+  border-top: none;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.instapost-tagline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ── Share row below card ── */
+.instapost-share-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.instapost-share-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ── Social icon circles ── */
+.instapost-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.instapost-social-icon:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.instapost-social-icon svg {
+  width: 18px;
+  height: 18px;
+}
