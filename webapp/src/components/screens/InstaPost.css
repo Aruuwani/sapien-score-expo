@@ -174,7 +174,7 @@
   font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* ── Social icon circles ── */
+/* ── Social icon circles (works for both <a> and <button>) ── */
 .instapost-social-icon {
   display: flex;
   align-items: center;
@@ -187,6 +187,11 @@
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
   border: 1.5px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .instapost-social-icon:hover {

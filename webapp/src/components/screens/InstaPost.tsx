@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import html2canvas from 'html2canvas';
 import './InstaPost.css';
-import { button } from 'framer-motion/client';
 
 interface ScoreItem {
     label: string;
@@ -22,6 +22,48 @@ const InstaPost: React.FC<InstaPostProps> = ({
     scores = defaultScores,
     onClose,
 }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    /**
+     * Captures ONLY the card element as a PNG blob,
+     * downloads it, and opens the social platform in a new tab.
+     */
+    const handleShare = async (platform: 'instagram' | 'facebook') => {
+        if (!cardRef.current) return;
+
+        try {
+            // Capture only the card
+            const canvas = await html2canvas(cardRef.current, {
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: null,
+                scale: 2, // retina quality
+            });
+
+            // Convert canvas → blob
+            const blob: Blob = await new Promise((resolve) => {
+                canvas.toBlob((b) => resolve(b!), 'image/png');
+            });
+
+            // 1. Always download the card image
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sapienscore.png';
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // 2. Open platform in a new tab
+            const platformUrl =
+                platform === 'instagram'
+                    ? 'https://www.instagram.com'
+                    : 'https://www.facebook.com';
+            window.open(platformUrl, '_blank', 'noopener,noreferrer');
+        } catch (err) {
+            console.error('Share failed:', err);
+        }
+    };
+
     return (
         <div className="instapost-background">
             {/* Close Button */}
@@ -29,8 +71,8 @@ const InstaPost: React.FC<InstaPostProps> = ({
                 ✕
             </button>
 
-            {/* Snapshot Card */}
-            <div className="instapost-card">
+            {/* Snapshot Card — ref attached here so only the card is captured */}
+            <div className="instapost-card" ref={cardRef}>
                 {/* Logo */}
                 <div className="instapost-logo">
                     <img src="/assets/images/sapianlogo.svg" alt="Sapien Logo" style={{ width: '63px', height: '63px' }} />
@@ -75,12 +117,11 @@ const InstaPost: React.FC<InstaPostProps> = ({
                 <span className="instapost-share-text">Share your top scores on</span>
 
                 {/* Instagram Icon */}
-                <a
-                    href="https://www.instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
                     className="instapost-social-icon"
                     aria-label="Share on Instagram"
+                    onClick={() => handleShare('instagram')}
+                    title="Share card on Instagram"
                 >
                     <svg
                         width="32"
@@ -96,15 +137,14 @@ const InstaPost: React.FC<InstaPostProps> = ({
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
-                </a>
+                </button>
 
                 {/* Facebook Icon */}
-                <a
-                    href="https://www.facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button
                     className="instapost-social-icon"
                     aria-label="Share on Facebook"
+                    onClick={() => handleShare('facebook')}
+                    title="Share card on Facebook"
                 >
                     <svg
                         width="32"
@@ -114,7 +154,7 @@ const InstaPost: React.FC<InstaPostProps> = ({
                     >
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                     </svg>
-                </a>
+                </button>
             </div>
         </div>
     );
